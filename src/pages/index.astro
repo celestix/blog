@@ -1,0 +1,68 @@
+---
+import type { MarkdownInstance } from "astro"
+import BlogCard from "../components/BlogCard.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { removeMarkdown, type Metadata } from "../utils/posts"
+
+let posts: MarkdownInstance<Metadata>[] = await Astro.glob('./posts/*.md');
+posts.sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
+const lp1 = posts[0]!;
+const lp2 = posts[1]!;
+const lp3 = posts[2]!;
+// posts = posts.slice(3);
+---
+<BaseLayout>
+<!-- <div class="fixed text-[400px] top-20 -rotate-12 -left-32 -z-50 font-sans font-extrabold text-gray-200 pointer-events-none select-none">WELCOME</div> -->
+<div class="text-4xl font-sfsemibold pb-4">Latest Blog<span class="hidden md:inline">s</span></div>
+<div class="md:grid lg:grid-cols-3 lg:grid-rows-2 md:grid-cols-2 md:grid-rows-3 gap-4">
+	<div class="bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] col-span-2 row-span-2">
+		<a href={lp1.url}>
+			<div class="md:h-80 h-60 overflow-hidden">
+				<img class="transition ease-in-out h-80 min-w-full object-cover hover:scale-[1.02]" src={lp1.frontmatter.image.url} alt={lp1.frontmatter.image.alt} />
+			</div>
+			<div class="min-h-full bg-white dark:bg-black px-10 md:py-0 py-4">
+				<div class="pt-5 pb-2 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp1.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+				<div class="font-sfsemibold truncate whitespace-nowrap sm:text-3xl text-2xl">{lp1?.frontmatter.title}</div>
+				<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp1?.frontmatter.pubDate).toDateString()}</div>
+				<div class="font-sfregular md:text-lg text-base pt-3 line-clamp-6">{removeMarkdown(lp1?.rawContent())}</div>
+			</div>
+		</a>
+	</div>
+	<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80  rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] md:block hidden">
+		<a href={lp2.url}>
+			<div class="h-32 overflow-hidden">
+				<img class="min-w-full object-cover h-32 transition ease-in-out hover:scale-[1.02]" src={lp2.frontmatter.image.url} alt={lp2.frontmatter.image.alt} />
+			</div>
+			<div class="h-44 bg-white dark:bg-black px-5">
+				<div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp2.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+				<div class="font-sfsemibold truncate whitespace-nowrap text-2xl">{lp2?.frontmatter.title}</div>
+				<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp2?.frontmatter.pubDate).toDateString()}</div>
+				<div class="font-sfregular pt-1 line-clamp-3">{removeMarkdown(lp2?.rawContent())}</div>
+			</div>
+		</a>
+	</div>
+	<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] md:block hidden">
+		<a href={lp3.url}>
+			<div class="h-32 overflow-hidden">
+				<img class="min-w-full object-cover h-32 transition ease-in-out hover:scale-[1.02]" src={lp3.frontmatter.image.url} alt={lp3.frontmatter.image.alt} />
+			</div>
+			<div class="h-44 bg-white dark:bg-black px-5">
+				<div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp3.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+				<div class="font-sfsemibold truncate whitespace-nowrap text-2xl">{lp3?.frontmatter.title}</div>
+				<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp3?.frontmatter.pubDate).toDateString()}</div>
+				<div class="font-sfregular pt-1 line-clamp-3">{removeMarkdown(lp3?.rawContent())}</div>
+			</div>
+		</a>
+	</div>
+</div>
+<!-- Older Blogs -->
+<div class="bg-gray-200 dark:bg-black pb-10 pt-0" slot="unpadded">
+	<hr class="dark:border-zinc-800 border-zinc-200 pb-8"/>
+	<div class="2xl:max-w-screen-xl lg:max-w-screen-lg max-w-screen-md mx-auto sm:px-3 px-6">
+		<div class="text-5xl font-sfbold pb-10 text-center">All Blogs</div>
+		<div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-x-4 sm:gap-x-2 gap-y-4">
+			{posts.map((meta) => <BlogCard meta={meta}/>)}
+		</div>
+	</div>
+</div>
+</BaseLayout>

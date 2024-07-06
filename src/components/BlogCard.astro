@@ -1,0 +1,24 @@
+---
+import type { MarkdownInstance } from "astro"
+import { removeMarkdown, type Metadata } from '../utils/posts'
+
+interface Props {
+    meta: MarkdownInstance<Metadata>
+}
+
+const { meta } = Astro.props;
+---
+
+<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-300 hover:shadow-xl hover:scale-[1.01]">
+    <a href={meta.url}>
+        <div class="h-44 overflow-hidden hidden sm:block">
+            <img class="min-w-full object-cover h-44 transition ease-in-out hover:scale-[1.02]" src={meta.frontmatter.image.url} alt={meta.frontmatter.image.alt} />
+        </div>
+        <div class="h-48 bg-white dark:bg-black px-5">
+            <div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular flex min-[300px]:flex-row flex-col space-x-1">{meta.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+            <div class="font-sfsemibold truncate whitespace-nowrap md:text-2xl text-xl">{meta.frontmatter.title}</div>
+            <div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(meta.frontmatter.pubDate).toDateString()}</div>
+            <div class="font-sfregular sm:pt-1 pt-3 line-clamp-3">{removeMarkdown(meta.rawContent())}</div>
+        </div>
+    </a>
+</div>

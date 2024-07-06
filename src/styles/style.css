@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'sfbold';
+    src: url('/fonts/sf-pro-display_bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'sfregular';
+    src: url('/fonts/sf-pro-display_regular.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'sfsemibold';
+    src: url('/fonts/sf-pro-display_semibold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'stregular';
+    src: url('/fonts/sf-pro-text_regular.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/* @media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+        color: var(--shiki-dark) !important;
+        background-color: #101010 !important;
+    }
+} */
+
+html.dark {
+    .astro-code, 
+    .astro-code span {
+        color: var(--shiki-dark) !important;
+        background-color: #101010 !important;
+    }
+}
+
+@layer base {
+    article {
+        h1 {
+            @apply text-4xl py-4;
+        }
+        h2 {
+            @apply text-3xl py-3;
+        }
+        h3 {
+            @apply text-2xl py-2
+        }
+        h4, h5, h6 {
+            @apply text-xl py-2
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-sfsemibold
+        }
+        p {
+            @apply text-base;
+            code {
+                @apply bg-zinc-300/60 dark:bg-zinc-800  p-[0.2rem] m-[0.1rem] rounded-sm
+            }
+        }
+        blockquote {
+            @apply border-l-4 border-blue-600 pl-4 my-4 py-1;
+            p {
+                @apply text-xl
+            }
+        }
+        ul {
+            @apply list-disc pl-5;
+        }
+        pre {
+            @apply rounded-lg p-3 text-sm scale-[0.98] bg-white border dark:border-zinc-700 border-zinc-200 my-2
+        }
+        img {
+            @apply mb-3 rounded-lg shadow-xl shadow-zinc-500/30 dark:shadow-none scale-[0.98] hover:scale-[1.01]
+        }
+        ol {
+            @apply list-decimal pl-5;
+            li {
+                @apply pl-2;
+            }
+        }
+        mark {
+            @apply text-white bg-black dark:bg-white dark:text-black px-1
+        }
+        table {
+            @apply w-full text-gray-700 dark:text-white rounded-xl scale-[0.98] divide-y divide-zinc-300 dark:divide-zinc-700 border-zinc-300 dark:border-zinc-700 border;
+            tr {
+                @apply divide-x divide-zinc-300 dark:divide-zinc-700
+            }
+            thead {
+                @apply bg-gray-50 dark:bg-black;
+                th {
+                    @apply px-6 py-3;
+                }
+            }
+            tbody {
+                tr {
+                    @apply bg-white  dark:bg-black
+                }
+                td {
+                    @apply px-6 py-1 text-center;
+                }
+            }
+        }
+    }
+}

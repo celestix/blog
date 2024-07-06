@@ -1,0 +1,20 @@
+---
+import type { Metadata } from "../utils/posts";
+import BaseLayout from "./BaseLayout.astro";
+import { type MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<Metadata>;
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+<div class="py-4 max-w-screen-md mx-auto">
+    <h1 class="text-5xl pt-2 text-start text-black dark:text-white font-sfbold">{frontmatter.title}</h1>
+    <p class="text-start pt-1 pb-6 text-base text-slate-500 dark:text-zinc-400">{new Date(frontmatter.pubDate).toDateString()}</p>
+    <article>
+        <slot />
+    </article>
+    <!-- </div> -->
+</div>
+</BaseLayout>

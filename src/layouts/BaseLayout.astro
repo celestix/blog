@@ -1,0 +1,35 @@
+---
+import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar.astro";
+import '../styles/style.css'
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Anony's Blog</title>
+		<script is:inline>
+			if ('theme' in localStorage) {
+				if (localStorage.theme === 'light') {
+					document.documentElement.classList.remove('dark');
+				}
+			}
+			// } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				// document.documentElement.classList.add('dark');
+			// }
+		</script>
+	</head>
+	<body class="font-sfregular bg-gray-100 dark:bg-black dark:text-white">
+		<NavBar />
+        <div class="min-h-[44.5rem]">
+		    <div class="max-w-screen-xl mx-auto lg:px-12 md:px-16 px-7 pb-10">
+                <slot />
+		    </div>
+            <slot name="unpadded" />
+        </div>
+        <Footer />
+	</body>
+</html>
