@@ -13,46 +13,48 @@ const lp3 = posts[2]!;
 ---
 <BaseLayout>
 <!-- <div class="fixed text-[400px] top-20 -rotate-12 -left-32 -z-50 font-sans font-extrabold text-gray-200 pointer-events-none select-none">WELCOME</div> -->
-<div class="text-4xl font-sfsemibold pb-4">Latest Blog<span class="hidden md:inline">s</span></div>
-<div class="md:grid lg:grid-cols-3 lg:grid-rows-2 md:grid-cols-2 md:grid-rows-3 gap-4">
-	<div class="bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] col-span-2 row-span-2">
-		<a href={lp1.url}>
-			<div class="md:h-80 h-60 overflow-hidden">
-				<img class="transition ease-in-out h-80 min-w-full object-cover hover:scale-[1.02]" src={lp1.frontmatter.image.url} alt={lp1.frontmatter.image.alt} />
-			</div>
-			<div class="min-h-full bg-white dark:bg-black px-10 md:py-0 py-4">
-				<div class="pt-5 pb-2 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp1.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
-				<div class="font-sfsemibold truncate whitespace-nowrap sm:text-3xl text-2xl">{lp1?.frontmatter.title}</div>
-				<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp1?.frontmatter.pubDate).toDateString()}</div>
-				<div class="font-sfregular md:text-lg text-base pt-3 line-clamp-6">{removeMarkdown(lp1?.rawContent())}</div>
-			</div>
-		</a>
-	</div>
-	<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80  rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] md:block hidden">
-		<a href={lp2.url}>
-			<div class="h-32 overflow-hidden">
-				<img class="min-w-full object-cover h-32 transition ease-in-out hover:scale-[1.02]" src={lp2.frontmatter.image.url} alt={lp2.frontmatter.image.alt} />
-			</div>
-			<div class="h-44 bg-white dark:bg-black px-5">
-				<div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp2.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
-				<div class="font-sfsemibold truncate whitespace-nowrap text-2xl">{lp2?.frontmatter.title}</div>
-				<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp2?.frontmatter.pubDate).toDateString()}</div>
-				<div class="font-sfregular pt-1 line-clamp-3">{removeMarkdown(lp2?.rawContent())}</div>
-			</div>
-		</a>
-	</div>
-	<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] md:block hidden">
-		<a href={lp3.url}>
-			<div class="h-32 overflow-hidden">
-				<img class="min-w-full object-cover h-32 transition ease-in-out hover:scale-[1.02]" src={lp3.frontmatter.image.url} alt={lp3.frontmatter.image.alt} />
-			</div>
-			<div class="h-44 bg-white dark:bg-black px-5">
-				<div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp3.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
-				<div class="font-sfsemibold truncate whitespace-nowrap text-2xl">{lp3?.frontmatter.title}</div>
-				<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp3?.frontmatter.pubDate).toDateString()}</div>
-				<div class="font-sfregular pt-1 line-clamp-3">{removeMarkdown(lp3?.rawContent())}</div>
-			</div>
-		</a>
+<div class="lg:pt-6 lg:pb-8 pt-3 pb-4 bg-gradient-to-r">
+	<div class="text-4xl font-sfsemibold pb-4">Latest Blog<span class="hidden md:inline">s</span></div>
+	<div class="md:grid lg:grid-cols-3 lg:grid-rows-2 md:grid-cols-2 md:grid-rows-3 gap-4">
+		<div class="bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] col-span-2 row-span-2">
+			<a href={lp1.url}>
+				<div class="md:h-80 h-60 overflow-hidden">
+					<img class="transition ease-in-out h-80 min-w-full object-cover hover:scale-[1.02]" src={lp1.frontmatter.image.url} alt={lp1.frontmatter.image.alt} />
+				</div>
+				<div class="min-h-full bg-white dark:bg-black px-10 md:py-0 py-4">
+					<div class="pt-5 pb-2 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp1.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+					<div class="font-sfsemibold truncate whitespace-nowrap sm:text-3xl text-2xl">{lp1?.frontmatter.title}</div>
+					<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp1?.frontmatter.pubDate).toDateString()}</div>
+					<div class="font-sfregular md:text-lg text-base pt-3 line-clamp-6">{removeMarkdown(lp1?.rawContent())}</div>
+				</div>
+			</a>
+		</div>
+		<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80  rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] md:block hidden">
+			<a href={lp2.url}>
+				<div class="h-32 overflow-hidden">
+					<img class="min-w-full object-cover h-32 transition ease-in-out hover:scale-[1.02]" src={lp2.frontmatter.image.url} alt={lp2.frontmatter.image.alt} />
+				</div>
+				<div class="h-44 bg-white dark:bg-black px-5">
+					<div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp2.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+					<div class="font-sfsemibold truncate whitespace-nowrap text-2xl">{lp2?.frontmatter.title}</div>
+					<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp2?.frontmatter.pubDate).toDateString()}</div>
+					<div class="font-sfregular pt-1 line-clamp-3">{removeMarkdown(lp2?.rawContent())}</div>
+				</div>
+			</a>
+		</div>
+		<div class=" bg-gray-300 dark:bg-black dark:border-zinc-700 dark:border dark:hover:shadow-lg dark:hover:shadow-zinc-950/80 rounded-3xl overflow-hidden transition ease-in-out hover:shadow-gray-200 hover:shadow-xl hover:scale-[1.01] md:block hidden">
+			<a href={lp3.url}>
+				<div class="h-32 overflow-hidden">
+					<img class="min-w-full object-cover h-32 transition ease-in-out hover:scale-[1.02]" src={lp3.frontmatter.image.url} alt={lp3.frontmatter.image.alt} />
+				</div>
+				<div class="h-44 bg-white dark:bg-black px-5">
+					<div class="pt-2 pb-1 text-indigo-600 dark:text-blue-600 font-sfregular inline-flex space-x-1">{lp3.frontmatter.tags.map((tag) => <p>#{tag}</p>)}</div>
+					<div class="font-sfsemibold truncate whitespace-nowrap text-2xl">{lp3?.frontmatter.title}</div>
+					<div class="text-sm text-gray-600 dark:text-zinc-400 font-sfregular">{new Date(lp3?.frontmatter.pubDate).toDateString()}</div>
+					<div class="font-sfregular pt-1 line-clamp-3">{removeMarkdown(lp3?.rawContent())}</div>
+				</div>
+			</a>
+		</div>
 	</div>
 </div>
 <!-- Older Blogs -->

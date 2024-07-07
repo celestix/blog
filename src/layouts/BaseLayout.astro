@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar.astro";
 import '../styles/style.css'
 ---
 
-<html lang="en" class="dark">
+<html lang="en" class="dark transition ease-linear scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,10 +12,8 @@ import '../styles/style.css'
 		<meta name="generator" content={Astro.generator} />
 		<title>Anony's Blog</title>
 		<script is:inline>
-			if ('theme' in localStorage) {
-				if (localStorage.theme === 'light') {
-					document.documentElement.classList.remove('dark');
-				}
+			if ('theme' in localStorage && localStorage.theme === 'light') {
+				document.documentElement.classList.remove('dark');
 			}
 			// } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				// document.documentElement.classList.add('dark');

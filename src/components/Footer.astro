@@ -1,32 +1,9 @@
 ---
 const date: Date = new Date();
 ---
-<script is:inline>
-    function handle_night(mode) {
-        switch (mode) {
-            case 1:
-                document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
-                break;
-            case 2:
-                document.documentElement.classList.remove('dark');
-                localStorage.theme = 'light';
-                break;
-        }
-    }
-</script>
-
 <footer class="bg-white dark:bg-black w-full">
     <hr class="dark:border-zinc-800 border-zinc-200"/>
-    <div class="m-auto h-20 flex flex-row items-center max-w-screen-xl justify-between text-gray-400 dark:text-zinc-300 text-sm font-sfregular md:px-12 px-5">
+    <div class="m-auto h-16 flex flex-row items-center max-w-screen-xl justify-around text-gray-400 dark:text-zinc-300 text-sm font-sfregular md:px-12 px-5">
         <p>Copyright © {date.getFullYear()} Anony. All rights reserved.</p>
-        <div class="inline-flex space-x-1 border border-zinc-200 dark:border-zinc-800 p-1 rounded-full">
-            <div id="toggle-light" role="button" onclick="handle_night(2)" class="rounded-full p-1 dark:bg-transparent bg-zinc-300/50">
-                <svg data-testid="geist-icon" fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="color: currentcolor; width: 16px; height: 16px;"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2"></path><path d="M12 21v2"></path><path d="M4.22 4.22l1.42 1.42"></path><path d="M18.36 18.36l1.42 1.42"></path><path d="M1 12h2"></path><path d="M21 12h2"></path><path d="M4.22 19.78l1.42-1.42"></path><path d="M18.36 5.64l1.42-1.42"></path></svg>
-            </div>
-            <div id="toggle-dark" role="button" onclick="handle_night(1)" class="rounded-full p-1 dark:bg-zinc-300/50">
-                <svg class="with-icon_icon__MHUeb" data-testid="geist-icon" fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="color: currentcolor; width: 16px; height: 16px;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
-            </div>
-        </div>
     </div>
 </footer>
