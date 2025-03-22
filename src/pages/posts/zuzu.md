@@ -8,6 +8,7 @@ image:
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
 layout: ../../layouts/BlogLayout.astro
+draft: true
 ---
 # **My First Blog Postss**
 ## hello

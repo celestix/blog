@@ -8,7 +8,8 @@ export interface Metadata {
 		alt: string
 	}
 	tags: string[],
-	layout: string
+	layout: string,
+  draft: boolean
 }
 
 export function removeMarkdown(md: string) {
